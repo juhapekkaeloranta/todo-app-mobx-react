@@ -11,7 +11,6 @@ class TodoList extends React.Component {
   }
 
   render() {
-    console.log(typeof this.props.store)
     return (
       <div>
         <NewTodo handleFormSubmit={this.newTodoItem}/>

@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 
+// Note alternative observer assingment syntax
 const Todo = observer(({ todo }) => (
   <li>
     <input

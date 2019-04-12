@@ -3,9 +3,9 @@ import { render } from "react-dom";
 import DevTools from "mobx-react-devtools";
 
 import TodoList from "./components/TodoList";
-import TodoListModel from "./models/TodoListModel";
+import TodoListStore from "./models/TodoListStore";
 
-const store = new TodoListModel();
+const store = new TodoListStore();
 
 render(
   <div>
@@ -23,5 +23,5 @@ setTimeout(() => {
   store.addTodo("Get a cookie as well");
 }, 2000);
 
-// playing around in the console
+// Allow referencing store from console via window
 window.store = store;
