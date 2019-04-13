@@ -1,0 +1,19 @@
+title Initialize MobX-store from IDB
+
+View->MobX: initStore()
+MobX->IDB: getTable('todos')
+IDB->MobX: Array<Todo>
+MobX->MobX: this.todos = newTodos
+MobX->View: refresh!
+
+title Save note to store
+
+participant View
+participant DAO
+participant MobX
+participant IDB
+View->DAO: addTodo('title')
+DAO->IDB: insertIntoTable('todo', newTodo)
+IDB->DAO: newTodo with id
+DAO->MobX: todos.push(newTodo)
+MobX->View: refresh!
