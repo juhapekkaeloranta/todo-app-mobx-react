@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'eval',
   mode: 'development',
   entry: [
+    'babel-polyfill',
     './src/index'
   ],
   output: {

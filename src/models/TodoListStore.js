@@ -2,15 +2,17 @@ import { observable, computed, action } from "mobx";
 import TodoModel from "./TodoModel";
 import { getTable, insertIntoTable } from "../store/indexedb";
 
-const getInitialTodos = () => {
+const getInitialTodos = async () => {
   return []
 }
 
 const getStoreTodos = async () => {
-  return await getTable("todos")
+  const table = await getTable("todos")
+  console.log("--table:", table)
+  return table
 }
 
-console.log(getStoreTodos())
+console.log("store:", getStoreTodos())
 
 export default class TodoListStore {
   @observable todos = getInitialTodos();
@@ -21,12 +23,14 @@ export default class TodoListStore {
   }
 
   @action
-  addTodo(title) {
+  async addTodo(title) {
     //testload()
     
-    insertIntoTable("todos", { title: title } ).then((todo) => {
+    /*insertIntoTable("todos", { title: title } ).then((todo) => {
       console.log("created:", todo)
-    })
+    })*/
+    const temp = await getTable("todos")
+    console.log(temp)
 
     this.todos.push(new TodoModel(title));
   }
