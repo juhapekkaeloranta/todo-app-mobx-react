@@ -1,7 +1,7 @@
 import { observable, action, computed } from 'mobx'
-import TodoModel from './TodoModel';
+import TodoModel from '../models/TodoModel';
 import { task } from 'mobx-task'
-import { getTable, insertIntoTable } from '../store/indexedb';
+import { getTable, insertIntoTable } from './indexedb';
 
 export default class IDBObservableTodoStore {
   @observable todos = []

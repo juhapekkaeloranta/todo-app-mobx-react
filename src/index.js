@@ -4,7 +4,7 @@ import DevTools from "mobx-react-devtools";
 
 import TodoList from "./components/TodoList";
 //import PlainObservableTodoStore from "./models/PlainObservableTodoStore";
-import IDBObservableTodoStore from "./models/IDBObservableTodoStore"
+import IDBObservableTodoStore from "./store/IDBObservableTodoStore"
 
 const store = new IDBObservableTodoStore();
 
