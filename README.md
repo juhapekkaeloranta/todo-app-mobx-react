@@ -51,12 +51,18 @@ async addTodo(title) {
 
 Next?
 
-Ideally the IndexedDB would be observable by it self
+Ideally the IndexedDB (Dexie) would be observable by it self
 -> one store in the browser
   - persistency
   - indexes
   - web standard (vs a library)
   - existing solutions for backend sync
+
+EDIT: Added dexie-observable. Now dexie updates are detected!
+- Still problem with updates to MobX state. But!
+- Allow updates only to Dexie? Then propagate those to MobX
+- MobX for easy use of observables
+- => flux pattern?
 
 Still mismatch between indexdb data schemas and relational?
 - relational vs keyvalue

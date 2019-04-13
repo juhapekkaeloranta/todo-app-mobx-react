@@ -3,21 +3,22 @@ import { render } from "react-dom";
 import DevTools from "mobx-react-devtools";
 
 import TodoList from "./components/TodoList";
-//import PlainObservableTodoStore from "./models/PlainObservableTodoStore";
-import IDBObservableTodoStore from "./store/IDBObservableTodoStore"
+import PersistentObservableTodoStore from './store/persistentObservableStore';
+import dexieStore from "./store/dexieStore";
 
-const store = new IDBObservableTodoStore();
+const pstore = new PersistentObservableTodoStore(new dexieStore())
 
-store.fetchTodos()
+//const store = new IDBObservableTodoStore(new fooStore());
+//store.fetchTodos()
 
 const showStore = () => {
-  console.log(store.todos)
+  console.log(pstore.todos)
 }
 
 render(
   <div>
     <DevTools />
-    <TodoList store={store} />
+    <TodoList store={pstore} />
     <button onClick={() => showStore()}>Print todos</button>
   </div>,
   document.getElementById("root")
